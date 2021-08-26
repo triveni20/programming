@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+
+int main(int argc,char*argv[])
+{
+  char const* const filename ="sortnumreadarray.c";
+  FILE *fptr1,*fptr2;
+  fptr1 =fopen(filename,"r");
+
+  if(fptr1==NULL)
+   {
+    printf("\n unable to open :%s",filename);
+    return -1;
+   }
+   fptr2=fopen(filename,"w");
+   if(fptr2==NULL)
+   {
+    printf("\n unable to open :%s",filename);
+    return -1;
+   }
+   char line[20];
+   int a[20];
+   int i;
+   while(fscanf(fptr1,"%s",line)!=EOF)
+     {
+        fprintf(fptr2,"%s",line);
+      }
+      printf("fptr1 copied to fptr2 succesfully");
+     fclose(fptr1);
+    fclose(fptr2);
+}
+
+
