@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main(int argc,char*argv[])
+{
+  int i;
+char c[100];
+   char const* const filename = "file1.c";
+  FILE *file =fopen(filename,"r");
+
+
+  if(!file)
+   {
+    printf("\n unable to open :%s",filename);
+    return -1;
+   }
+  fscanf(file," %[^?]",c);
+  printf("%s\n",c);
+
+  fclose(file);
+}
+output:-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+int main()
+{
+   FILE *file=NULL;
+
+
+   file=fopen("number.txt","r");
+   if(file != NULL)
+    {
+       printf("file opened succesfully\n");
+   }
+   else 
+    {
+     perror("open file");
+    }
+   char line[36];
+    while(fgets(line , sizeof(line),file) != EOF)
+    {
+        printf("%s",line);
+    }
+    
+    fclose (file);
+
+}
